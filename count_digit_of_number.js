@@ -1,22 +1,17 @@
 let assert = require("assert").equal;
-
-const countDigits = function(number) {
-  let divisor = 10;
-  let counter = 0;
-  let remainder = 0;
-  while(number!=remainder){
-    remainder = number % divisor;
-    divisor*=10;
-    counter++;
-  }
-  return counter; 
-}
+let countDigits = require("./count_digits_lib.js").countDigits;
 
 const main = function(){
-  let inputNumber = +process.argv[2];
-  let expectedOutput = +process.argv[3];
-  let count = countDigits(inputNumber);
-  assert(count,expectedOutput);
+
+  let count = countDigits(4244323);
+  assert(count,7);
+  count = countDigits(333);
+  assert(count,3);
+  count = countDigits(424324323);
+  assert(count,9);
+  count = countDigits(42443);
+  assert(count,5);
+
   console.log(count);
   return;
 }
